@@ -1,0 +1,145 @@
+﻿@using CoffeeShop.Models.Model
+@model OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+
+    <div>
+        <h4>Order Information</h4>
+        <hr />
+        <div class="row">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>	<i class="icon fa fa-check"></i> SUCCESS!</h4>
+                    Information is recorded.
+                </div>
+            }
+        </div>
+        <dl class="dl-horizontal">
+            <dt>
+                Order State
+            </dt>
+
+            <dd>
+                @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
+                {
+                    @Html.HiddenFor(i => i.OrderId)
+                    @Html.EnumDropDownListFor(i => i.OrderState, "Select Order's State", new { @class = "form-control" })
+                    <button type="submit" class="btn btn-primary">Update</button>
+                }
+
+            </dd>
+            <dt>
+                Username
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.UserName)
+            </dd>
+            <dt>
+                Order Number
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.OrderNumber)
+            </dd>
+            <dt>
+                Total Price
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.Total)
+            </dd>
+            <dt>
+                Order Date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.OrderDate)
+            </dd>
+            <dt>
+                Address
+            </dt>
+
+            <dd>
+                Adres:  @Html.DisplayFor(Model => Model.Address) <br />
+                Mahalle:  @Html.DisplayFor(Model => Model.Street) <br />
+                İlçe:  @Html.DisplayFor(Model => Model.District) <br />
+                Şehir:  @Html.DisplayFor(Model => Model.City) <br />
+                Posta Kodu:  @Html.DisplayFor(Model => Model.Postcode) <br />
+            </dd>
+
+        </dl>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Number</th>
+                <th>Order Date</th>
+                <th>($)Total Price</th>
+                <th>Order State</th>
+
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>
+                    @Model.OrderId
+                </td>
+                <td>
+                    @Model.OrderNumber
+                </td>
+                <td>
+                    @Model.OrderDate
+                </td>
+                <td>
+                    @Model.Total
+                </td>
+                <td>
+                    @if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Waiting)
+                    {
+                        <a class="btn btn-danger">Order Is Waiting</a>
+                    }
+                    else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Completed)
+                    {
+                        <a class="btn btn-success">Order Is Completed</a>
+                    }
+                    else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Packaged)
+                    {
+                        <a class="btn btn-info">Order Is Packaged</a>
+                    }
+                    else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Shipped)
+                    {
+                        <a class="btn btn-primary">Order Is Shipped</a>
+                    }
+
+
+                </td>
+                <td>
+                    @Model.Address <br />
+                    @Model.City <br />
+                    @Model.District <br />
+                    @Model.Street <br />
+                    @Model.Postcode <br />
+                </td>
+
+
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+</section>
+

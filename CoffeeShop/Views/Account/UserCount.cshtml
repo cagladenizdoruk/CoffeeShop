@@ -1,0 +1,18 @@
+﻿@using CoffeeShop.Identity
+@model IEnumerable<AppUser>
+
+<div class="col-lg-3 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua">
+        <div class="inner">
+            <h3>@Model.Count()</h3>
+
+            <p>Number Of Users</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-bag"></i>
+        </div>
+        <a href="/Account/UserList" class="small-box-footer">Details <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+    </div>
+

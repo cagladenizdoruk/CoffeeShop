@@ -1,0 +1,98 @@
+﻿@using CoffeeShop.Models.Model
+@model About
+@{
+    ViewBag.Title = "HomeAbout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Delicious Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/Template/Delicious/assets/img/favicon.png" rel="icon">
+    <link href="/Template/Delicious/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/Template/Delicious/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Template/Delicious/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/Template/Delicious/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/Template/Delicious/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/Template/Delicious/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="/Template/Delicious/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/Template/Delicious/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Delicious - v2.2.1
+    * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about" >
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("/Content/image/gallery-8.jpg"); max-height: 50%'>
+                    </div>
+
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+                        <div class="content">  
+                               
+                               @Model.Description 
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="/Template/Delicious/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/Template/Delicious/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Template/Delicious/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="/Template/Delicious/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/Template/Delicious/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="/Template/Delicious/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/Template/Delicious/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="/Template/Delicious/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/Template/Delicious/assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+

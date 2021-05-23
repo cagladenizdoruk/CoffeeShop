@@ -1,0 +1,13 @@
+﻿@using CoffeeShop.Models.Model
+@model IEnumerable<CategoryModel>
+
+<li data-filter="*" ><a href="/Home/Menu" > Show All</a></li>
+@foreach (var item in Model)
+{
+   
+    <li  data-filter=".filter-drinks"><a href="/Home/ProductList/@item.CategoryId"> @item.Name</a></li>
+}
+
+
+
+    

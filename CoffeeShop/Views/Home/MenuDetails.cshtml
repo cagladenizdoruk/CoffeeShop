@@ -1,0 +1,135 @@
+﻿@using CoffeeShop.Models.Model
+@model Product
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>COFFEE SHOP</title>
+    <link href="/Site/detail/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/Site/detail/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/Site/detail/css/styless.css">
+    <link rel="stylesheet" href="/Site/detail/css/styless.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-left">
+                        <div class="menu">
+                            <a class="toggleMenu" href="#"><img src="/Site/detail/images/nav.png" alt="" /></a>
+                            
+                            <script type="text/javascript" src="js/responsive-nav.js"></script>
+                        </div>
+
+                    </div>
+                    
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="shop_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 single_left">
+                        <div class="single_image">
+                            <img class="etalage_thumb_image" src="~/Content/image/@Model.Image" />
+
+                        </div>
+                        <!-- end product_slider -->
+                        <div class="single_right">
+                            <h3>@Model.Name </h3>
+                            <p class="m_10"> @Model.Description</p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-md-3">
+                        <div class="box-info-product">
+                           @using (Html.BeginForm("AddToBasket", "Basket", new {id= Model.ProductId}))
+                            {
+                               // @Html.HiddenFor(i => i.ProductId)
+
+
+                                <p class="price2">$@Model.Price</p>
+                                <div class="prosuct-qty">
+                                    <span>Quantity:</span>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <button type="submit" name="Submit" class="exclusive">
+                                    <span>Add to basket</span>
+                                </button>
+
+
+
+
+                            }
+                        </div>
+                    </div>
+
+
+
+                    <div class="clear"> </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <link href="/Site/detail/css/styless.css" rel='stylesheet' type='text/css' />
+  
+</body>
+</html>

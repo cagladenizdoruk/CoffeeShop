@@ -1,0 +1,63 @@
+﻿@using CoffeeShop.Models.Model
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="menu" class="menu"  style="background:#000000;">
+    <div class="container">
+
+        <div class="section-title">
+            <h2> <span></span></h2>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="menu-flters">
+                    @Html.Action("_CategoryList", "Category")
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row menu-container" style="position: relative; height: 374.445px;">
+            <ul class="thumbnails">
+                @foreach (var item in Model)
+                {
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <li class="span6">
+                        <div class="thumbnail">
+                            <div class="col-lg-6 menu-item filter-starters" style="position: absolute">
+                                <a href="/Home/MenuDetails/@item.ProductId"><img src="~/Content/image/@item.Image" class="menu-img" alt=""></a>
+                                <div class="menu-content">
+                                    <a href="/Home/MenuDetails/@item.ProductId">@item.Name</a><span>$@item.Price</span>
+                                </div>
+                                <div class="menu-ingredients">
+                                    @item.Description
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+
+
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</section>
+
+

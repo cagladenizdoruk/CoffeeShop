@@ -1,0 +1,202 @@
+﻿@model CoffeeShop.Models.Model.OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/Shop/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Shop/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Shop/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/Shop/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/Shop/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Shop/css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Cart</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Basket</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+    <!-- Start Cart  -->
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+
+
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Order Number</th>
+                                    <th>Order Date</th>
+                                    <th>($)Total Price</th>
+                                    <th>Order State</th>
+
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                <tr>
+                                    <td>
+                                        @Model.OrderId
+                                    </td>
+                                    <td>
+                                        @Model.OrderNumber
+                                    </td>
+                                    <td>
+                                        @Model.OrderDate
+                                    </td>
+                                    <td>
+                                        @Model.Total
+                                    </td>
+                                    <td>
+                                        @if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Waiting)
+                                        {
+                                            <a class="btn btn-danger">Order Is Waiting</a>
+                                        }
+                                        else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Completed)
+                                        {
+                                            <a class="btn btn-success">Order Is Completed</a>
+                                        }
+                                        else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Packaged)
+                                        {
+                                            <a class="btn btn-info">Order Is Packaged</a>
+                                        }
+                                        else if (Model.OrderState == CoffeeShop.Models.Model.OrderState.Shipped)
+                                        {
+                                            <a class="btn btn-primary">Order Is Shipped</a>
+                                        }
+
+
+                                    </td>
+                                    <td>
+                                        @Model.Address <br />
+                                        @Model.City <br />
+                                        @Model.District <br />
+                                        @Model.Street <br />
+                                        @Model.Postcode <br />
+                                    </td>
+
+
+
+                                </tr>
+                                
+
+
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>($)Total Price</th>
+                                    <th>Quantity</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.OrderLines)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            <img src="~/Content/image/@item.Image" height="75" width="75" />
+                                        </td>
+                                        
+                                        <td>
+                                            @item.ProductName
+                                        </td>
+                                        <td>
+                                            @item.Price
+                                        </td>
+                                        <td>
+                                            @item.Quantity
+                                        </td>
+
+                                        <td>
+                                            <a href="/Home/MenuDetails/@item.ProductId" class="btn btn-success" target="_blank">Product Detail</a>
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- End Cart -->
+        <!-- End copyright  -->
+
+        <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+        <!-- ALL JS FILES -->
+        <script src="/Shop/js/jquery-3.2.1.min.js"></script>
+        <script src="/Shop/js/popper.min.js"></script>
+        <script src="/Shop/js/bootstrap.min.js"></script>
+        <!-- ALL PLUGINS -->
+        <script src="/Shop/js/jquery.superslides.min.js"></script>
+        <script src="/Shop/js/bootstrap-select.js"></script>
+        <script src="/Shop/js/inewsticker.js"></script>
+        <script src="/Shop/js/bootsnav.js."></script>
+        <script src="/Shop/js/images-loded.min.js"></script>
+        <script src="/Shop/js/isotope.min.js"></script>
+        <script src="/Shop/js/owl.carousel.min.js"></script>
+        <script src="/Shop/js/baguetteBox.min.js"></script>
+        <script src="/Shop/js/form-validator.min.js"></script>
+        <script src="/Shop/js/contact-form-script.js"></script>
+        <script src="/Shop/js/custom.js"></script>
+</body>
+
+</html>
+

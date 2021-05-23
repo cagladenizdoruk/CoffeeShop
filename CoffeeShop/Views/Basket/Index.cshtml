@@ -1,0 +1,162 @@
+﻿@model CoffeeShop.Models.Model.Basket
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/Shop/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/Shop/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Shop/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/Shop/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/Shop/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Shop/css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Start All Title Box -->
+    <div class="all-title-box" style="background-image: url('/Content/image/gallery-2.jpg');">
+       
+    </div>
+    <!-- End All Title Box -->
+    <!-- Start Cart  -->
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    @if (Model.BasketLines.Count > 0)
+                    {
+
+
+                        <div class="table-main table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Images</th>
+                                        <th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.BasketLines)
+                                    {
+                                        <tr>
+                                            <td class="thumbnail-img">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="~/Content/image/@item.Product.Image" alt="" />
+                                                </a>
+                                            </td>
+                                            <td class="name-pr">
+                                                <a href="#">
+                                                    @item.Product.Name
+                                                </a>
+                                            </td>
+                                            <td class="price-pr">
+                                                <p>$ @item.Product.Price</p>
+                                            </td>
+                                            <td class="quantity-box"><input type="number" size="4" value=@item.Quantity min="0" step="1" class="c-input-text qty text"></td>
+                                            <td class="total-pr">
+                                                <p>@((item.Product.Price * item.Quantity).ToString("c"))</p>
+                                            </td>
+                                            @using (Html.BeginForm("RemoveFromBasket", "Basket"))
+                                            {
+                                                @Html.Hidden("Id", item.Product.ProductId)
+                                                <td class="remove-pr">
+                                                    <button>
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </td>
+
+                                            }
+                                        </tr>
+
+
+                                    }
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th class="label label-warning" style="display:block">Total Price: $ @Model.Total()</th>
+                                        <th></th>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">
+                            <p>
+                                Basket is empty
+                            </p>
+                        </div>
+                    }
+                    <a href="/Home/Index" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue To Shopping </a>
+                  
+                        <a href="/Basket/Checkout" class="shopBtn btn-large pull-right"> Complete The Order <span class="icon-arrow-right"></span></a>
+                 
+                 
+                   
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- End Cart -->
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="/Shop/js/jquery-3.2.1.min.js"></script>
+    <script src="/Shop/js/popper.min.js"></script>
+    <script src="/Shop/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/Shop/js/jquery.superslides.min.js"></script>
+    <script src="/Shop/js/bootstrap-select.js"></script>
+    <script src="/Shop/js/inewsticker.js"></script>
+    <script src="/Shop/js/bootsnav.js."></script>
+    <script src="/Shop/js/images-loded.min.js"></script>
+    <script src="/Shop/js/isotope.min.js"></script>
+    <script src="/Shop/js/owl.carousel.min.js"></script>
+    <script src="/Shop/js/baguetteBox.min.js"></script>
+    <script src="/Shop/js/form-validator.min.js"></script>
+    <script src="/Shop/js/contact-form-script.js"></script>
+    <script src="/Shop/js/custom.js"></script>
+</body>
+
+</html>

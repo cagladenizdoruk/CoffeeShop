@@ -1,0 +1,132 @@
+﻿@model CoffeeShop.Models.Model.Register
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>COFFEE SHOP</title>
+    <link href="/Site/detail/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/Site/detail/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="/Site/detail/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-left">
+                        <div class="menu">
+                            <a class="toggleMenu" href="#"><img src="/Site/detail/images/nav.png" alt="" /></a>
+
+                            <script type="text/javascript" src="/Site/detail/js/responsive-nav.js"></script>
+                        </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="main">
+        <div class="shop_top">
+            <div class="container">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { }))
+                {
+
+                    <div class="register-top-grid">
+
+
+                        <h3>REGISTRATION</h3>
+                        <div>
+                            <span>Name<label>*</label></span>
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div>
+                            <span>Surname<label>*</label></span>
+                            @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <span>Email<label>*</label></span>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <span>Username<label>*</label></span>
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <span>Password<label>*</label></span>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <span>Confirm Password<label>*</label></span>
+                            @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control", @style = "width:96%" } })
+                            @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
+                        </div>
+                    </div>
+
+
+                }
+                
+
+                </div>
+
+                
+            </div>
+    </div>
+    <link href="/Site/detail/css/styless.css" rel='stylesheet' type='text/css' />
+    
+</body>
+</html>
+

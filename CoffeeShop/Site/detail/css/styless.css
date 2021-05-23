@@ -1,0 +1,58 @@
+/*
+COLOR PALETTE
+https://coolors.co/f7fff7-343434-2f3061-ffe66d-a1c6d7
+#F7FFF7 - almost white
+#343434 - dark gray - almost black
+#2F3061 - blue dark
+#FFE66D - yellow
+#A1C6D7 - blue light
+*/
+
+/* Global styles
+------------------------------------*/
+  h2 {
+    color: #FFE66D;
+    font-size: 45px;
+  }
+
+  h2 {
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    margin: 0;
+  }
+  .content-wrap {
+    max-width: 800px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+  .etalage_thumb_image{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+  }
+  
+  /* Contact Info
+  ------------------------------------*/
+  
+  footer {
+    background-image: #343434;
+    color: #F7FFF7;
+    text-align: center;
+  }
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .contact-list {
+    padding: 15px;
+    display: inline-block;
+  }
+  
+  
